@@ -8,7 +8,7 @@ import routes from './routers.ts'
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-  scrollBehavior(to, from, savaPosition) {
+  scrollBehavior() {
     return {
       top: 0,
     }
