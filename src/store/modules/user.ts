@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { useAuthStore } from './auth'
+// @ts-ignore
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 export const useUserStore = defineStore('user-store', () => {
