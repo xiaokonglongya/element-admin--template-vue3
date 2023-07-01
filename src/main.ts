@@ -7,12 +7,15 @@ import 'virtual:uno.css'
 import router from '@/router/index.ts'
 import '@/router/interception.ts'
 import store from './store'
-
+import { getRouter } from '@/api/auth.ts'
+import { addRouter } from '@/router/tools.ts'
 const initAPP = async () => {
   const app = createApp(App)
+  const routerList = await getRouter()
+  addRouter(routerList)
   app.use(store)
-  app.use(router)
   app.use(element)
+  app.use(router)
   app.mount('#app')
 }
 initAPP()

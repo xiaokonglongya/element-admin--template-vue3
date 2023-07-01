@@ -4,7 +4,7 @@ import { House, Setting } from '@element-plus/icons-vue'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'home',
+    name: 'layout',
     component: Layout,
     redirect: {
       name: 'home-index-1',
@@ -75,7 +75,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
-    redirect: { name: 'home' },
+    redirect: { path: '/' },
   },
 ]
 export default routes
