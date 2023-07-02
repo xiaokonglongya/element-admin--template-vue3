@@ -1,12 +1,14 @@
 import { defineComponent } from 'vue'
 import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
 import { cloneDeep } from 'lodash-es'
-
+import { useConfigStore } from '@/store/modules/config'
+import './style.scss'
 export default defineComponent({
   name: 'Menu',
   setup() {
     const route = useRoute()
     const router = useRouter()
+    const global_config = useConfigStore()
     const getMenu = () => {
       // 所有layout下的路由
       const options = cloneDeep(router.options.routes.find((e) => e.path === '/')) || { children: [] }
@@ -38,7 +40,7 @@ export default defineComponent({
           <el-icon>
             <Vicon />
           </el-icon>
-          {title}
+          <span> {title} </span>
         </>
       )
     }
@@ -70,8 +72,13 @@ export default defineComponent({
     const defaultActive = route.path
     return () => {
       return (
-        <div class="menu m-r-[-2px]">
-          <el-menu default-active={defaultActive} router={true}>
+        <div class="menu h-[100%]">
+          <el-menu
+            class="border-none"
+            collapse={global_config.config.isExpand}
+            collapse-transition={false}
+            default-active={defaultActive}
+            router={true}>
             {renderMenu()}
           </el-menu>
         </div>

@@ -1,5 +1,6 @@
 import { LoginParams, LoginResultModel } from '@/types/auth'
 import request from '@/utils/http/request'
+import { House } from '@element-plus/icons-vue'
 
 /**
  * 登陆
@@ -21,6 +22,7 @@ export const getRouter = () => {
       component: () => import('@/views/home/index.vue'),
       meta: {
         title: '动态加载首页',
+        icon: House,
         menu: {
           visible: true,
         },
