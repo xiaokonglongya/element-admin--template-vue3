@@ -9,8 +9,11 @@ import '@/router/interception.ts'
 import store from './store'
 import { getRouter } from '@/api/auth.ts'
 import { addRouter } from '@/router/tools.ts'
+// @ts-ignore
+import { ElMessage } from 'element-plus'
 const initAPP = async () => {
   const app = createApp(App)
+  window.$message = ElMessage
   const routerList = await getRouter()
   addRouter(routerList)
   app.use(store)

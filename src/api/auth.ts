@@ -1,7 +1,16 @@
+import { LoginParams, LoginResultModel } from '@/types/auth'
 import request from '@/utils/http/request'
-export const login = () => {
-  return request<{ uid: string }>({
+
+/**
+ * 登陆
+ * @param body
+ * @returns
+ */
+export const login = (body: LoginParams) => {
+  return request<LoginResultModel>({
     url: '/login',
+    method: 'POST',
+    data: body,
   })
 }
 export const getRouter = () => {

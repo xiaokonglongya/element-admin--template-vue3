@@ -5,6 +5,7 @@ export const useAuthStore = defineStore(
   'auth-store',
   () => {
     const token = ref('')
+
     return { token }
   },
   {
